@@ -7,6 +7,7 @@ A simple, static one-page website. No build tools, no framework — just HTML, C
 - `style.css` — all styling (colors, fonts, layout)
 - `script.js` — WhatsApp link setup + menu tab switching
 - `Dockerfile` — runs the site in an nginx container
+- `images/` — photos used as CSS backgrounds (hero, about gallery, service cards); see `images/README.md` for filenames. Every spot has a color fallback, so the site still looks fine before you add real photos.
 
 ## Option A — Fastest: just open it
 Double-click `index.html`. It opens in your browser. Edit any file, save, refresh the browser to see changes.
@@ -35,6 +36,7 @@ docker run -p 8080:80 -v "%cd%":/usr/share/nginx/html nginx:alpine
 - **Colors**: in `style.css`, the `:root { ... }` block at the top (`--accent`, `--gold`, etc.).
 - **WhatsApp number/message**: in `script.js`, the `waNumber` and `waMessage` variables.
 - **Address/map**: search `kontak` section in `index.html`, and the Google Maps `iframe` src.
+- **Photos**: drop files into `images/` using the names listed in `images/README.md`.
 
 ## IntelliJ
 IntelliJ (Ultimate) has built-in support for opening static HTML with a browser preview icon in the gutter — no plugin needed. Community Edition can open/edit the files fine but lacks the live preview; VS Code + Live Server is easier for that.
