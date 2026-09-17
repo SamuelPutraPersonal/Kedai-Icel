@@ -12,11 +12,15 @@ tools, no framework, no package manager.
 
 - `index.html` — all page structure and content (hero, about, menu, ordering
   steps, testimonials, contact).
-- `style.css` — all styling, including light/dark theme via CSS custom
-  properties in `:root` and `prefers-color-scheme`.
+- `style.css` — all styling via CSS custom properties in `:root` (single
+  fixed light/warm theme — no dark-mode variant).
 - `script.js` — two responsibilities: building the WhatsApp deep link and
   wiring the menu tab switcher.
 - `Dockerfile` — serves the folder as-is via `nginx:alpine`.
+- `images/` — photo assets used as CSS `background-image`s (hero, about
+  gallery, service cards). See `images/README.md` for expected filenames.
+  Every spot that references one has a CSS color fallback, so a missing file
+  never shows as a broken image.
 - `README.md` — end-user setup instructions (Live Server, Docker, IntelliJ).
 
 ## Working in this repo
@@ -32,9 +36,11 @@ tools, no framework, no package manager.
 ## Conventions
 
 - Colors, fonts, spacing are theme tokens in `style.css`'s `:root` block
-  (`--accent`, `--gold`, `--bg`, etc.) plus a `prefers-color-scheme: dark`
-  override and a `[data-theme="dark"]` override. Add new colors as tokens
-  there rather than hardcoding hex values in rules.
+  (`--accent`, `--accent-dark`, `--gold`, `--bg`, `--heading`, etc.). Add new
+  colors as tokens there rather than hardcoding hex values in rules — a few
+  low-opacity `rgba(...)` glows/shadows are hardcoded to match the current
+  accent/gold values since CSS custom properties can't be used inside
+  `rgba()`; update those by hand if the accent or gold hex changes.
 - Menu items live in `index.html` as `.menu-card` blocks inside
   `.menu-panel[data-panel="..."]` sections; tab buttons
   (`.menu-tab[data-tab="..."]`) must match the panel's `data-panel` value.
@@ -45,7 +51,9 @@ tools, no framework, no package manager.
   new WhatsApp CTA button must use one of those existing classes/ids (or be
   added to that selector) to get its link wired.
 - Section `id`s (`#tentang`, `#menu`, `#cara-pesan`, `#kontak`) are targeted
-  by the nav links in the header — keep them in sync if renaming.
+  by the nav links in the header — keep them in sync if renaming. Note
+  `#menu` is the "Layanan Catering" image-card grid; the detailed, tabbed
+  price list right below it is a separate section, `#menu-detail`.
 
 ## Verifying changes
 
