@@ -4,6 +4,45 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kedai Icel — Catering Masakan Rumahan</title>
+<meta name="description" content="Kedai Icel — catering rumahan khas Nusantara di Terbanggi Besar, Lampung Tengah. Nasi box, lauk pauk, sate, dan menu snack untuk acara keluarga, kantor, hingga hajatan.">
+
+<!-- Open Graph / WhatsApp & Facebook link preview -->
+<!-- TODO: replace https://kedaiicel.example.com/ below with the site's real deployed URL once hosted -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kedai Icel">
+<meta property="og:title" content="Kedai Icel — Catering Cita Rasa Khas Nusantara">
+<meta property="og:description" content="Catering rumahan di Terbanggi Besar, Lampung Tengah. Pesan nasi box, lauk pauk, sate, dan menu snack langsung lewat WhatsApp.">
+<meta property="og:image" content="https://kedaiicel.example.com/images/tumpeng2.jpeg">
+<meta property="og:url" content="https://kedaiicel.example.com/">
+<meta property="og:locale" content="id_ID">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Kedai Icel — Catering Cita Rasa Khas Nusantara">
+<meta name="twitter:description" content="Catering rumahan di Terbanggi Besar, Lampung Tengah. Pesan nasi box, lauk pauk, sate, dan menu snack langsung lewat WhatsApp.">
+<meta name="twitter:image" content="https://kedaiicel.example.com/images/tumpeng2.jpeg">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CateringService",
+  "name": "Kedai Icel",
+  "image": "https://kedaiicel.example.com/images/tumpeng2.jpeg",
+  "description": "Catering rumahan khas Nusantara — nasi box, lauk pauk, sate, dan snack untuk acara keluarga, kantor, hingga hajatan.",
+  "url": "https://kedaiicel.example.com/",
+  "telephone": "+6281379531206",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Terbanggi Besar",
+    "addressRegion": "Lampung Tengah",
+    "addressCountry": "ID"
+  },
+  "areaServed": "Terbanggi Besar, Lampung Tengah",
+  "servesCuisine": "Indonesian",
+  "openingHours": "Mo-Su 08:00-20:00"
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -39,7 +78,7 @@
 <section class="section section-white" id="tentang">
   <div class="wrap about-grid">
     <div class="about-photo-wrap">
-      <img class="about-photo-img" src="images/tumpeng2.jpeg" alt="Tumpeng dan hidangan Kedai Icel" loading="lazy">
+      <img class="about-photo-img lightbox-trigger" src="images/tumpeng2.jpeg" alt="Tumpeng dan hidangan Kedai Icel" loading="lazy">
     </div>
     <div class="about-text">
       <span class="section-head kicker">Tentang Kami</span>
@@ -65,15 +104,15 @@
     </div>
     <div class="services-grid">
       <div class="service-card">
-        <img class="service-media" src="images/sate.jpeg" alt="Menu Harian / Ala Carte" loading="lazy">
+        <img class="service-media lightbox-trigger" src="images/sate.jpeg" alt="Menu Harian / Ala Carte" loading="lazy">
         <div class="service-label">Menu Harian</div>
       </div>
       <div class="service-card">
-        <img class="service-media" src="images/nasi_kotak.jpeg" alt="Nasi Kotak" loading="lazy">
+        <img class="service-media lightbox-trigger" src="images/nasi_kotak.jpeg" alt="Nasi Kotak" loading="lazy">
         <div class="service-label">Nasi Kotak</div>
       </div>
       <div class="service-card">
-        <img class="service-media" src="images/tumpeng.jpeg" alt="Paket Catering Tumpeng" loading="lazy">
+        <img class="service-media lightbox-trigger" src="images/tumpeng.jpeg" alt="Paket Catering Tumpeng" loading="lazy">
         <div class="service-label">Paket Catering</div>
       </div>
     </div>
@@ -85,69 +124,139 @@
     <div class="section-head">
       <span class="kicker">Menu</span>
       <h2>Pilihan Menu Kedai Icel</h2>
-      <p>Contoh menu di bawah — kabari saya menu &amp; harga aslinya biar bisa langsung disesuaikan.</p>
+      <p>Pilih menu yang Anda minati, lalu minta penawaran harga langsung lewat WhatsApp — harga menyesuaikan jumlah porsi &amp; kebutuhan acara.</p>
     </div>
-    <div class="menu-list">
-      <div class="menu-item">
-        <img class="menu-item-img" src="images/ayamgoreng.jpeg" alt="Ayam Goreng Lengkuas" loading="lazy">
+
+    <div class="menu-filters" role="tablist" aria-label="Kategori menu">
+      <button type="button" class="menu-filter active" data-filter="semua">Semua</button>
+      <button type="button" class="menu-filter" data-filter="nasibox">Nasi Box</button>
+      <button type="button" class="menu-filter" data-filter="lauk">Lauk Pauk</button>
+      <button type="button" class="menu-filter" data-filter="snack">Snack &amp; Minuman</button>
+    </div>
+
+    <div class="menu-list" id="menu-list">
+      <div class="menu-item" data-category="nasibox">
+        <img class="menu-item-img lightbox-trigger" src="images/nasi_kotak.jpeg" alt="Nasi Box Ayam Goreng Lengkuas" loading="lazy">
+        <div class="menu-item-body">
+          <div class="menu-item-name">Nasi Box Ayam Goreng Lengkuas</div>
+          <div class="menu-item-desc">Nasi putih, ayam goreng lengkuas, sayur, kerupuk, dan sambal dalam satu box praktis.</div>
+          <button type="button" class="menu-select-btn" data-dish="Nasi Box Ayam Goreng Lengkuas">+ Pilih Menu</button>
+        </div>
+      </div>
+      <div class="menu-item" data-category="nasibox">
+        <img class="menu-item-img lightbox-trigger" src="images/nasi_kotak.jpeg" alt="Nasi Box Rendang" loading="lazy">
+        <div class="menu-item-body">
+          <div class="menu-item-name">Nasi Box Rendang</div>
+          <div class="menu-item-desc">Nasi putih, rendang daging empuk, sayur, dan kerupuk dalam kemasan box.</div>
+          <button type="button" class="menu-select-btn" data-dish="Nasi Box Rendang">+ Pilih Menu</button>
+        </div>
+      </div>
+      <div class="menu-item" data-category="nasibox">
+        <img class="menu-item-img lightbox-trigger" src="images/nasi_kotak.jpeg" alt="Nasi Kotak Paket Acara" loading="lazy">
+        <div class="menu-item-body">
+          <div class="menu-item-name">Nasi Kotak Paket Acara</div>
+          <div class="menu-item-desc">Paket nasi kotak untuk acara kantor, syukuran, atau rapat, minimal pesan 10 box.</div>
+          <button type="button" class="menu-select-btn" data-dish="Nasi Kotak Paket Acara">+ Pilih Menu</button>
+        </div>
+      </div>
+
+      <div class="menu-item" data-category="lauk">
+        <img class="menu-item-img lightbox-trigger" src="images/ayamgoreng.jpeg" alt="Ayam Goreng Lengkuas" loading="lazy">
         <div class="menu-item-body">
           <div class="menu-item-name">Ayam Goreng Lengkuas</div>
           <div class="menu-item-desc">Ayam kampung goreng bumbu lengkuas khas rumahan, gurih dan renyah di luar.</div>
+          <button type="button" class="menu-select-btn" data-dish="Ayam Goreng Lengkuas">+ Pilih Menu</button>
         </div>
       </div>
-      <div class="menu-item">
-        <img class="menu-item-img" src="images/gurame.jpeg" alt="Gurame Bakar / Goreng" loading="lazy">
+      <div class="menu-item" data-category="lauk">
+        <img class="menu-item-img lightbox-trigger" src="images/gurame.jpeg" alt="Gurame Bakar / Goreng" loading="lazy">
         <div class="menu-item-body">
           <div class="menu-item-name">Gurame Bakar / Goreng</div>
           <div class="menu-item-desc">Ikan gurame segar, dibakar atau digoreng garing dengan sambal khas.</div>
+          <button type="button" class="menu-select-btn" data-dish="Gurame Bakar / Goreng">+ Pilih Menu</button>
         </div>
       </div>
-      <div class="menu-item">
-        <img class="menu-item-img" src="images/udang.jpeg" alt="Udang Balado / Tumis" loading="lazy">
+      <div class="menu-item" data-category="lauk">
+        <img class="menu-item-img lightbox-trigger" src="images/udang.jpeg" alt="Udang Balado / Tumis" loading="lazy">
         <div class="menu-item-body">
           <div class="menu-item-name">Udang Balado / Tumis</div>
           <div class="menu-item-desc">Udang segar dimasak balado pedas manis atau tumis bumbu rumahan.</div>
+          <button type="button" class="menu-select-btn" data-dish="Udang Balado / Tumis">+ Pilih Menu</button>
         </div>
       </div>
-      <div class="menu-item">
-        <img class="menu-item-img" src="images/sate.jpeg" alt="Sate Ayam / Daging" loading="lazy">
+      <div class="menu-item" data-category="lauk">
+        <img class="menu-item-img lightbox-trigger" src="images/sate.jpeg" alt="Sate Ayam / Daging" loading="lazy">
         <div class="menu-item-body">
           <div class="menu-item-name">Sate Ayam / Daging</div>
           <div class="menu-item-desc">Sate bakar bumbu kacang, cocok jadi menu utama atau pelengkap acara.</div>
+          <button type="button" class="menu-select-btn" data-dish="Sate Ayam / Daging">+ Pilih Menu</button>
         </div>
       </div>
-      <div class="menu-item">
-        <img class="menu-item-img" src="images/miebihun.jpeg" alt="Mie / Bihun Goreng" loading="lazy">
+      <div class="menu-item" data-category="lauk">
+        <img class="menu-item-img lightbox-trigger" src="images/miebihun.jpeg" alt="Mie / Bihun Goreng" loading="lazy">
         <div class="menu-item-body">
           <div class="menu-item-name">Mie / Bihun Goreng</div>
           <div class="menu-item-desc">Mie atau bihun goreng bumbu rumahan dengan sayuran dan telur.</div>
+          <button type="button" class="menu-select-btn" data-dish="Mie / Bihun Goreng">+ Pilih Menu</button>
         </div>
       </div>
-      <div class="menu-item">
-        <img class="menu-item-img" src="images/sambelkentang.jpeg" alt="Sambel Goreng Kentang" loading="lazy">
+      <div class="menu-item" data-category="lauk">
+        <img class="menu-item-img lightbox-trigger" src="images/sambelkentang.jpeg" alt="Sambel Goreng Kentang" loading="lazy">
         <div class="menu-item-body">
           <div class="menu-item-name">Sambel Goreng Kentang</div>
           <div class="menu-item-desc">Kentang potong dadu digoreng bumbu sambal, pedas manis khas rumahan.</div>
+          <button type="button" class="menu-select-btn" data-dish="Sambel Goreng Kentang">+ Pilih Menu</button>
         </div>
       </div>
-      <div class="menu-item">
-        <img class="menu-item-img" src="images/rolade.jpeg" alt="Rolade Daging" loading="lazy">
+      <div class="menu-item" data-category="lauk">
+        <img class="menu-item-img lightbox-trigger" src="images/rolade.jpeg" alt="Rolade Daging" loading="lazy">
         <div class="menu-item-body">
           <div class="menu-item-name">Rolade Daging</div>
           <div class="menu-item-desc">Gulungan daging isi sayur dan telur, disiram saus gurih.</div>
+          <button type="button" class="menu-select-btn" data-dish="Rolade Daging">+ Pilih Menu</button>
         </div>
       </div>
-      <div class="menu-item">
-        <img class="menu-item-img" src="images/sayurkates.jpeg" alt="Sayur Kates (Pepaya Muda)" loading="lazy">
+      <div class="menu-item" data-category="lauk">
+        <img class="menu-item-img lightbox-trigger" src="images/sayurkates.jpeg" alt="Sayur Kates (Pepaya Muda)" loading="lazy">
         <div class="menu-item-body">
           <div class="menu-item-name">Sayur Kates (Pepaya Muda)</div>
           <div class="menu-item-desc">Sayur pepaya muda santan gurih, teman makan nasi paling pas.</div>
+          <button type="button" class="menu-select-btn" data-dish="Sayur Kates (Pepaya Muda)">+ Pilih Menu</button>
+        </div>
+      </div>
+
+      <div class="menu-item" data-category="snack">
+        <div class="menu-item-img menu-item-img--placeholder" aria-hidden="true">🥟</div>
+        <div class="menu-item-body">
+          <div class="menu-item-name">Risoles Mayo</div>
+          <div class="menu-item-desc">Isi ayam suwir &amp; mayones, gurih dan renyah, cocok untuk snack box.</div>
+          <button type="button" class="menu-select-btn" data-dish="Risoles Mayo">+ Pilih Menu</button>
+        </div>
+      </div>
+      <div class="menu-item" data-category="snack">
+        <div class="menu-item-img menu-item-img--placeholder" aria-hidden="true">🍰</div>
+        <div class="menu-item-body">
+          <div class="menu-item-name">Kue Lapis Legit</div>
+          <div class="menu-item-desc">Kue lapis tradisional dipanggang lapis demi lapis, manis legit.</div>
+          <button type="button" class="menu-select-btn" data-dish="Kue Lapis Legit">+ Pilih Menu</button>
+        </div>
+      </div>
+      <div class="menu-item" data-category="snack">
+        <div class="menu-item-img menu-item-img--placeholder" aria-hidden="true">🥤</div>
+        <div class="menu-item-body">
+          <div class="menu-item-name">Es Teh / Es Jeruk</div>
+          <div class="menu-item-desc">Minuman segar pelengkap acara, tersedia rasa manis atau original.</div>
+          <button type="button" class="menu-select-btn" data-dish="Es Teh / Es Jeruk">+ Pilih Menu</button>
         </div>
       </div>
     </div>
+
     <div class="menu-cta">
       <p>Masih banyak pilihan menu menarik lainnya! Silakan hubungi kami melalui WhatsApp untuk info menu lengkap &amp; pemesanan.</p>
-      <a class="wa-btn hero-wa-btn" href="#" target="_blank" rel="noopener">💬 Chat via WhatsApp</a>
+      <div class="menu-cta-actions">
+        <a class="wa-btn hero-wa-btn" href="#" target="_blank" rel="noopener">💬 Chat via WhatsApp</a>
+        <button type="button" class="cta-btn" id="open-quote-btn">📝 Minta Penawaran Custom</button>
+      </div>
     </div>
   </div>
 </section>
@@ -231,6 +340,38 @@
 </footer>
 
 <a class="float-wa" id="float-wa" href="#" target="_blank" rel="noopener" aria-label="Chat WhatsApp">💬</a>
+
+<div class="modal-overlay" id="quote-modal" hidden>
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="quote-modal-title">
+    <button type="button" class="modal-close" id="quote-modal-close" aria-label="Tutup">✕</button>
+    <h3 id="quote-modal-title">Minta Penawaran Menu</h3>
+    <p class="modal-sub">Pilih menu yang diinginkan, isi detail acara, lalu kirim ke WhatsApp kami untuk mendapatkan penawaran harga.</p>
+    <form id="quote-form">
+      <div class="quote-dishes" id="quote-dishes"><!-- diisi otomatis oleh script.js dari daftar menu --></div>
+
+      <div class="form-row">
+        <label for="quote-date">Tanggal Acara</label>
+        <input type="date" id="quote-date" name="quote-date">
+      </div>
+      <div class="form-row">
+        <label for="quote-address">Alamat Kirim</label>
+        <textarea id="quote-address" name="quote-address" rows="2" placeholder="Alamat lengkap acara / pengiriman"></textarea>
+      </div>
+      <div class="form-row">
+        <label for="quote-notes">Catatan</label>
+        <textarea id="quote-notes" name="quote-notes" rows="2" placeholder="Contoh: acara syukuran 50 orang, butuh box terpisah, dll."></textarea>
+      </div>
+
+      <p class="quote-error" id="quote-error" hidden>Silakan pilih minimal satu menu terlebih dahulu.</p>
+      <button type="submit" class="wa-btn quote-submit">💬 Kirim Penawaran ke WhatsApp</button>
+    </form>
+  </div>
+</div>
+
+<div class="lightbox" id="lightbox" hidden>
+  <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Tutup">✕</button>
+  <img id="lightbox-img" src="" alt="">
+</div>
 
 <script src="script.js"></script>
 

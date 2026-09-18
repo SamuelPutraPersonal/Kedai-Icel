@@ -1,0 +1,26 @@
+{
+  "name": "kedai-icel",
+  "version": "1.0.0",
+  "description": "A simple, static one-page website. No build tools, no framework — just HTML, CSS, and JS.",
+  "main": "src/script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:e2e": "playwright test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SamuelPutraPersonal/Kedai-Icel.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/SamuelPutraPersonal/Kedai-Icel/issues"
+  },
+  "homepage": "https://github.com/SamuelPutraPersonal/Kedai-Icel#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "http-server": "^14.1.1"
+  }
+}
